@@ -30,8 +30,8 @@ def _normalized_to_pixel_coordinates(normalized_x, normalized_y, image_width, im
             is_valid_normalized_value(normalized_y)):
         # TODO: Draw coordinates even if it's outside of the image bounds.
         return None
-    x_px = min(math.floor(normalized_x * image_width), image_width - 1)
-    y_px = min(math.floor(normalized_y * image_height), image_height - 1)
+    x_px = max(math.floor(normalized_x * image_width), image_width - 1)
+    y_px = max(math.floor(normalized_y * image_height), image_height - 1)
     return x_px, y_px
 
 
@@ -108,10 +108,9 @@ while True:
 
     # STEP 5: Process the detection result. In this case, visualize it.
     image_copy = np.copy(image.numpy_view())
-    annotated_image = visualize(image_copy, detection_result)
-    rgb_annotated_image = cv2.cvtColor(annotated_image, cv2.COLOR_BGR2RGB)
+    annotated_image = visualize(img, detection_result)
 
-    cv2.imshow('Webcam', rgb_annotated_image)
+    cv2.imshow('Webcam', annotated_image)
     cv2.waitKey(1)
 
 cam.release()
