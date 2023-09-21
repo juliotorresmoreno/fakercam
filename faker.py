@@ -2,11 +2,8 @@ from gestures.eyes import get_eyes
 from utils.ai import get_detector, get_predictor
 from gestures.lip import is_yawn, get_lip
 from utils.cam import get_cam
+import time, sys, os, cv2
 from imutils import face_utils
-import time
-import cv2
-import sys
-import os
 sys.path.append(os.getcwd())
 
 
