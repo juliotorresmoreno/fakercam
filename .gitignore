@@ -1,0 +1,6 @@
+model
+.vscode
+dist
+build
+__pycache__
+.env
