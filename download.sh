@@ -41,5 +41,10 @@ if [ ! -f face_stylizer_oil_painting.task ]; then
     wget https://storage.googleapis.com/mediapipe-models/face_stylizer/blaze_face_stylizer/float32/latest/face_stylizer_oil_painting.task
 fi
 
+if [ ! tensorflow_inception_graph.pb ];then
+    wget https://storage.googleapis.com/download.tensorflow.org/models/inception5h.zip
+    unzip inception5h.zip
+fi
+
 cd ..
 
